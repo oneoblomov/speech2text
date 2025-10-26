@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<schemalist>
+  <schema id="org.gnome.shell.extensions.stt" path="/org/gnome/shell/extensions/stt/">
+    
+    <!-- Genel Ayarlar -->
+    <key name="ui-language" type="s">
+      <default>"system"</default>
+      <summary>Interface Language</summary>
+      <description>User interface language (system, en, tr)</description>
+    </key>
+    
+    <key name="language" type="s">
+      <default>"tr-TR"</default>
+      <summary>STT Language</summary>
+      <description>Speech to text recognition language</description>
+    </key>
+    
+    <key name="quality" type="s">
+      <default>"high"</default>
+      <summary>Recognition Quality</summary>
+      <description>Quality level for speech recognition (low, medium, high)</description>
+    </key>
+    
+    <key name="auto-record" type="b">
+      <default>false</default>
+      <summary>Auto Record</summary>
+      <description>Automatically start recording when extension is activated</description>
+    </key>
+    
+    <!-- Overlay Ayarları -->
+    <key name="show-overlay" type="b">
+      <default>true</default>
+      <summary>Show Overlay</summary>
+      <description>Show overlay widget on screen</description>
+    </key>
+    
+    <key name="overlay-horizontal-position" type="s">
+      <default>"center"</default>
+      <summary>Overlay Horizontal Position</summary>
+      <description>Horizontal position of overlay widget (left, center, right)</description>
+    </key>
+    
+    <key name="overlay-vertical-position" type="s">
+      <default>"bottom"</default>
+      <summary>Overlay Vertical Position</summary>
+      <description>Vertical position of overlay widget (top, center, bottom)</description>
+    </key>
+    
+    <key name="overlay-x-offset" type="i">
+      <default>0</default>
+      <summary>Overlay X Offset</summary>
+      <description>Fine-tune horizontal position offset in pixels (-500 to 500)</description>
+    </key>
+    
+    <key name="overlay-y-offset" type="i">
+      <default>0</default>
+      <summary>Overlay Y Offset</summary>
+      <description>Fine-tune vertical position offset in pixels (-500 to 500)</description>
+    </key>
+    
+    <key name="overlay-width" type="i">
+      <default>480</default>
+      <summary>Overlay Width</summary>
+      <description>Width of overlay widget in pixels (300-800)</description>
+    </key>
+    
+    <key name="overlay-height" type="i">
+      <default>150</default>
+      <summary>Overlay Height</summary>
+      <description>Height of overlay widget in pixels (100-300)</description>
+    </key>
+    
+    <key name="overlay-orientation" type="s">
+      <default>"horizontal"</default>
+      <summary>Overlay Orientation</summary>
+      <description>Orientation of overlay widget (horizontal, vertical)</description>
+    </key>
+    
+    <key name="overlay-opacity" type="d">
+      <default>0.8</default>
+      <summary>Overlay Opacity</summary>
+      <description>Opacity level of overlay widget (0.0 to 1.0)</description>
+    </key>
+    
+    <key name="overlay-theme" type="s">
+      <default>"system"</default>
+      <summary>Overlay Theme</summary>
+      <description>Theme for overlay widget (system, light, dark)</description>
+    </key>
+    
+    <key name="overlay-font-family" type="s">
+      <default>"System Default"</default>
+      <summary>Overlay Font Family</summary>
+      <description>Font family for overlay text display</description>
+    </key>
+    
+    <key name="overlay-font-size" type="i">
+      <default>16</default>
+      <summary>Overlay Font Size</summary>
+      <description>Font size for overlay text in pixels (10-32)</description>
+    </key>
+    
+    <!-- Ses Ayarları -->
+    <key name="microphone-sensitivity" type="i">
+      <default>50</default>
+      <summary>Microphone Sensitivity</summary>
+      <description>Microphone sensitivity level (0-100)</description>
+    </key>
+    
+    <key name="noise-reduction" type="b">
+      <default>true</default>
+      <summary>Noise Reduction</summary>
+      <description>Enable noise reduction for better recognition</description>
+    </key>
+    
+    <!-- Kısayol Tuşları -->
+    <key name="toggle-recording-shortcut" type="as">
+      <default>["&lt;Control&gt;&lt;Alt&gt;r"]</default>
+      <summary>Toggle Recording Shortcut</summary>
+      <description>Keyboard shortcut to start/stop recording</description>
+    </key>
+    
+    <!-- Otomatik İşlemler -->
+    <key name="auto-copy" type="b">
+      <default>false</default>
+      <summary>Auto Copy</summary>
+      <description>Automatically copy recognized text to clipboard</description>
+    </key>
+    
+    <key name="auto-clear" type="b">
+      <default>false</default>
+      <summary>Auto Clear</summary>
+      <description>Automatically clear text after copying</description>
+    </key>
+    
+    <!-- Model Ayarları -->
+    <key name="current-model-path" type="s">
+      <default>"/home/kaplan/Documents/vosk-model-small-en-us-0.15"</default>
+      <summary>Current Model Path</summary>
+      <description>Path to the currently selected Vosk model</description>
+    </key>
+    
+    <key name="available-models" type="as">
+      <default>[]</default>
+      <summary>Available Models</summary>
+      <description>List of available Vosk model paths</description>
+    </key>
+    
+    <key name="model-language" type="s">
+      <default>"en-US"</default>
+      <summary>Model Language</summary>
+      <description>Language of the current speech recognition model</description>
+    </key>
+    
+    <key name="model-quality" type="s">
+      <default>"small"</default>
+      <summary>Model Quality</summary>
+      <description>Quality/size of the current model (small, medium, large)</description>
+    </key>
+    
+    <key name="auto-detect-models" type="b">
+      <default>true</default>
+      <summary>Auto Detect Models</summary>
+      <description>Automatically scan for Vosk models in common directories</description>
+    </key>
+    
+    <!-- Çeviri Ayarları -->
+    <key name="enable-translation" type="b">
+      <default>false</default>
+      <summary>Enable Translation</summary>
+      <description>Enable automatic translation of recognized text</description>
+    </key>
+    
+    <key name="translation-service" type="s">
+      <default>"google"</default>
+      <summary>Translation Service</summary>
+      <description>Translation service to use (google, libretranslate, offline)</description>
+    </key>
+    
+    <key name="translation-target-language" type="s">
+      <default>"tr"</default>
+      <summary>Translation Target Language</summary>
+      <description>Target language for translation (ISO 639-1 code)</description>
+    </key>
+    
+    <key name="translation-source-language" type="s">
+      <default>"auto"</default>
+      <summary>Translation Source Language</summary>
+      <description>Source language for translation (auto-detect or ISO 639-1 code)</description>
+    </key>
+    
+    <key name="libretranslate-url" type="s">
+      <default>"https://libretranslate.de"</default>
+      <summary>LibreTranslate URL</summary>
+      <description>URL for LibreTranslate service</description>
+    </key>
+    
+    <key name="google-translate-api-key" type="s">
+      <default>""</default>
+      <summary>Google Translate API Key</summary>
+      <description>API key for Google Translate service (optional)</description>
+    </key>
+    
+    <key name="show-original-text" type="b">
+      <default>true</default>
+      <summary>Show Original Text</summary>
+      <description>Show original text along with translation</description>
+    </key>
+    
+    <key name="auto-translate" type="b">
+      <default>false</default>
+      <summary>Auto Translate</summary>
+      <description>Automatically translate recognized text</description>
+    </key>
+    
+  </schema>
+</schemalist>
