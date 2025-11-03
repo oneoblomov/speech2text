@@ -416,10 +416,10 @@ export default class STTPreferences extends ExtensionPreferences {
         // Width
         const widthRow = new Adw.SpinRow({
             title: _('Width'),
-            subtitle: _('Overlay width in pixels (300-800)'),
+            subtitle: _('Overlay width in pixels (100-1000)'),
             adjustment: new Gtk.Adjustment({
-                lower: 300,
-                upper: 800,
+                lower: 100,
+                upper: 1000,
                 step_increment: 10,
                 value: settings.get_int('overlay-width')
             })
@@ -430,10 +430,10 @@ export default class STTPreferences extends ExtensionPreferences {
         // Height
         const heightRow = new Adw.SpinRow({
             title: _('Height'),
-            subtitle: _('Overlay height in pixels (100-300)'),
+            subtitle: _('Overlay height in pixels (100-1000)'),
             adjustment: new Gtk.Adjustment({
                 lower: 100,
-                upper: 300,
+                upper: 1000,
                 step_increment: 5,
                 value: settings.get_int('overlay-height')
             })

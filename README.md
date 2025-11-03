@@ -1,5 +1,7 @@
 # GNOME Speech2Text Extension
 
+![Uygulama Çalışma Ekranı](https://github.com/oneoblomov/speech2text/blob/main/.github/Screenshot.png)
+
 ## Özellikler
 
 - GNOME Shell için konuşmadan metne dönüştürme
