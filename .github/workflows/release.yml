@@ -1,0 +1,62 @@
+name: Release
+
+on:
+    push:
+        tags:
+            - "v*"
+
+jobs:
+    release:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Get version from tag
+              id: get_version
+              run: echo "VERSION=${GITHUB_REF#refs/tags/v}" >> $GITHUB_OUTPUT
+
+            - name: Create extension zip
+              run: |
+                  # Create a temporary directory for packaging
+                  mkdir -p package
+                  cp -r * package/ 2>/dev/null || true
+                  cd package
+
+                  # Remove unnecessary files
+                  rm -rf .git .github node_modules *.log
+
+                  # Create zip file
+                  zip -r ../speech2text-extension.zip .
+
+                  cd ..
+                  ls -la speech2text-extension.zip
+
+            - name: Create Release
+              uses: actions/create-release@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  tag_name: ${{ github.ref }}
+                  release_name: Release ${{ github.ref }}
+                  body: |
+                      GNOME Shell Speech to Text Extension v${{ steps.get_version.outputs.VERSION }}
+
+                      ## Changes
+                      See commit history for changes in this release.
+
+                      ## Installation
+                      Download the `speech2text-extension.zip` file and extract it to `~/.local/share/gnome-shell/extensions/speech2text@oneoblomov.dev/`
+                  draft: false
+                  prerelease: false
+
+            - name: Upload Release Asset
+              uses: actions/upload-release-asset@v1
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+              with:
+                  upload_url: ${{ steps.create_release.outputs.upload_url }}
+                  asset_path: ./speech2text-extension.zip
+                  asset_name: speech2text-extension.zip
+                  asset_content_type: application/zip

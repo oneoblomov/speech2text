@@ -1,0 +1,22 @@
+{
+  "name": "gnome-shell-extension-speech2text",
+  "version": "1.0.0",
+  "description": "GNOME Shell extension for speech to text conversion",
+  "main": "extension.js",
+  "scripts": {
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
+  },
+  "devDependencies": {
+    "eslint": "^8.57.0"
+  },
+  "keywords": [
+    "gnome",
+    "shell",
+    "extension",
+    "speech-to-text",
+    "vosk"
+  ],
+  "author": "oneoblomov",
+  "license": "GPL-3.0"
+}

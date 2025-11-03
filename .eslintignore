@@ -1,0 +1,10 @@
+# Ignore third-party libraries and build artifacts
+node_modules/
+ses/vosk-linux-x86_64-0.3.45/
+*.min.js
+
+# Ignore generated files
+schemas/gschemas.compiled
+
+# Ignore documentation
+README.md

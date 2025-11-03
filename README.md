@@ -1,5 +1,6 @@
 # GNOME Speech2Text Extension
 
+![CI](https://github.com/oneoblomov/speech2text/workflows/CI/badge.svg)
 ![Uygulama Çalışma Ekranı](https://github.com/oneoblomov/speech2text/blob/main/.github/Screenshot.png)
 
 ## Özellikler
@@ -74,6 +75,20 @@
 ## Katkı ve Lisans
 
 Katkıda bulunmak için pull request gönderebilirsiniz. Lisans bilgisi için metadata.json dosyasına bakınız.
+
+## Development
+
+### Kod Kalitesi
+
+Bu proje ESLint kullanarak JavaScript kod kalitesini kontrol eder:
+
+```bash
+# Lint kontrolü
+npm run lint
+
+# Otomatik düzeltme
+npm run lint:fix
+```
 
 ---
 

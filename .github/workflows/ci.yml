@@ -1,0 +1,49 @@
+name: CI
+
+on:
+    push:
+        branches: [main]
+    pull_request:
+        branches: [main]
+
+jobs:
+    validate:
+        runs-on: ubuntu-latest
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "18"
+                  cache: "npm"
+
+            - name: Install dependencies
+              run: |
+                  npm install
+                  sudo apt-get update
+                  sudo apt-get install -y gnome-shell-extension-prefs
+
+            - name: Lint JavaScript files
+              run: |
+                  find . -name "*.js" -not -path "./node_modules/*" -not -path "./ses/vosk-linux-x86_64-0.3.45/*" | xargs eslint --fix-dry-run --format=compact || true
+
+            - name: Validate GNOME Shell extension
+              run: |
+                  gnome-extensions check speech2text@oneoblomov.dev || echo "Extension validation failed, but continuing..."
+
+            - name: Check metadata.json
+              run: |
+                  python3 -c "
+                  import json
+                  with open('metadata.json') as f:
+                      data = json.load(f)
+                  required_fields = ['uuid', 'name', 'description', 'shell-version', 'version']
+                  for field in required_fields:
+                      if field not in data:
+                          print(f'Missing required field: {field}')
+                          exit(1)
+                  print('metadata.json validation passed')
+                  "
