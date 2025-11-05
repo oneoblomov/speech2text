@@ -1,58 +1,58 @@
 # GNOME Speech2Text Extension
 
 ![CI](https://github.com/oneoblomov/speech2text/workflows/CI/badge.svg)
-![Uygulama Çalışma Ekranı](https://github.com/oneoblomov/speech2text/blob/main/.github/Screenshot.png)
+![Application Screenshot](https://github.com/oneoblomov/speech2text/blob/main/.github/Screenshot.png)
 
-## Özellikler
+## Features
 
-- GNOME Shell için konuşmadan metne dönüştürme
-- Vosk tabanlı ses tanıma (yerel çalışır, internet gerekmez)
-- Çoklu dil desteği (İngilizce, Türkçe vb.)
-- Çeviri ve metin gösterimi
-- Kolay arayüz ve panel butonu
-- Ayarlar ve özelleştirme seçenekleri
+- Speech-to-text conversion for GNOME Shell
+- Vosk-based speech recognition (runs locally, no internet required)
+- Multi-language support (English, Turkish, etc.)
+- Translation and text display
+- Easy interface and panel button
+- Settings and customization options
 
-## Kurulum
+## Installation
 
-### 1. Bağımlılıkların Kurulumu
+### 1. Installing Dependencies
 
-- GNOME Shell 3.36+ yüklü olmalıdır.
-- Vosk kütüphanesi ve model dosyaları gereklidir.
-- Gerekli paketleri yüklemek için terminalde aşağıdaki komutları çalıştırın:
+- GNOME Shell 3.36+ must be installed.
+- Vosk library and model files are required.
+- To install the necessary packages, run the following commands in the terminal:
 
   ```bash
   sudo apt-get install build-essential libglib2.0-dev libgtk-3-dev
   ```
 
-### 2. Vosk Modelinin İndirilmesi
+### 2. Downloading the Vosk Model
 
-- Vosk modelini [Vosk GitHub](https://alphacephei.com/vosk/models) üzerinden indirin.
-- İndirdiğiniz model dosyasını `ses/vosk-linux-x86_64-0.3.45` dizinine çıkarın.
-- `libvosk.so` ve `vosk_api.h` dosyalarının bu dizinde olduğundan emin olun.
+- Download the Vosk model from [Vosk GitHub](https://alphacephei.com/vosk/models).
+- Extract the downloaded model file into the `ses/vosk-linux-x86_64-0.3.45` directory.
+- Ensure that `libvosk.so` and `vosk_api.h` files are in this directory.
 
-### 3. Ses Kaydedici Derlemesi
+### 3. Compiling the Audio Recorder
 
-- `ses/audio_recorder.cpp` dosyasını derlemek için terminalde aşağıdaki komutu çalıştırın:
+- To compile the `ses/audio_recorder.cpp` file, run the following command in the terminal:
 
   ```bash
   cd ses
   make
   ```
 
-- Derleme sonrası `audio_recorder` dosyası oluşacaktır.
+- After compilation, the `audio_recorder` file will be created.
 
-### 4. Uzantının Kurulumu
+### 4. Installing the Extension
 
-- Tüm dosyaları `~/.local/share/gnome-shell/extensions/speech2text@oneoblomov.dev` dizinine kopyalayın.
-- GNOME Shell uzantıları uygulamasından veya terminalden uzantıyı etkinleştirin:
+- Copy all files to the `~/.local/share/gnome-shell/extensions/speech2text@oneoblomov.dev` directory.
+- Enable the extension from the GNOME Shell extensions app or from the terminal:
 
   ```bash
   gnome-extensions enable speech2text@oneoblomov.dev
   ```
 
-### 5. GNOME Shell'i Yeniden Başlatma
+### 5. Restarting GNOME Shell
 
-- Değişikliklerin etkin olması için GNOME Shell'i yeniden başlatın:
+- To apply the changes, restart GNOME Shell:
 
   ```bash
   Alt + F2
@@ -60,36 +60,32 @@
   Enter
   ```
 
-## Kullanım
+## Usage
 
-- Paneldeki mikrofon butonuna tıklayarak konuşmayı başlatın.
-- Tanınan metin otomatik olarak ekranda gösterilir ve recognized_text.txt dosyasına kaydedilir.
-- Ayarlar menüsünden dil ve diğer seçenekleri değiştirebilirsiniz.
+- Click the microphone button in the panel to start speaking.
+- Recognized text is automatically displayed on the screen and saved to the recognized_text.txt file.
+- You can change the language and other options from the settings menu.
 
-## Gereksinimler
+## Requirements
 
 - GNOME Shell 3.36+
-- Vosk kütüphanesi ve model dosyaları
-- Gerekirse ek bağımlılıklar: `libvosk.so`, `audio_recorder`
+- Vosk library and model files
+- If necessary, additional dependencies: `libvosk.so`, `audio_recorder`
 
-## Katkı ve Lisans
+## Contribution and License
 
-Katkıda bulunmak için pull request gönderebilirsiniz. Lisans bilgisi için metadata.json dosyasına bakınız.
+You can contribute by sending pull requests. For license information, see the metadata.json file.
 
 ## Development
 
-### Kod Kalitesi
+### Code Quality
 
-Bu proje ESLint kullanarak JavaScript kod kalitesini kontrol eder:
+This project uses ESLint to check JavaScript code quality:
 
 ```bash
-# Lint kontrolü
+# Lint check
 npm run lint
 
-# Otomatik düzeltme
+# Auto fix
 npm run lint:fix
 ```
-
----
-
-Daha fazla detay veya özel bir bölüm eklenmesini istiyorsanız belirtiniz.
